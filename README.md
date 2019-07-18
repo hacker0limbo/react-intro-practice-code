@@ -1,2 +1,3 @@
 # react-intro-practice-code
- small projects for learning react
+
+初学 react 时候的练习项目
