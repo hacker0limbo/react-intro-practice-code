@@ -15,21 +15,20 @@ export default class Records extends Component {
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     // 生命周期, 当组件挂载以后可以初始化数据
-    RecordsAPI.getAll()
-      .then(res =>
-        this.setState({
-          records: res.data,
-          isLoaded: true
-        })
-      )
-      .catch(error =>
-        this.setState({
-          isLoaded: true,
-          error: error
-        })
-      )
+    try {
+      const res = await RecordsAPI.getAll()
+      this.setState({
+        records: res.data,
+        isLoaded: true
+      })  
+    } catch (error) {
+      this.setState({
+        isLoaded: true,
+        error: error
+      })
+    }
   }
 
   addRecord(newRecord) {

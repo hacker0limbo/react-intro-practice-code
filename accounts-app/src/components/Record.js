@@ -21,7 +21,7 @@ export default class Record extends Component {
     })
   }
 
-  handleEdit(event) {
+  async handleEdit(event) {
     event.preventDefault()
     const updatedRecord = {
       // 发送要保证是原始数据, 因此拿到表单数据以后还需要处理
@@ -29,24 +29,29 @@ export default class Record extends Component {
       title: this.titleInput.current.value,
       amount: Number.parseInt(this.amountInput.current.value)
     }
-    RecordsAPI.update(this.props.record.id, updatedRecord)
-      .then(res => {
-        // 需要将 form 自己隐藏, 也就是需要改变 edit state
-        this.setState({
-          edit: false,
-        })
-        // 更新数据, 需在 records 这个数组中找到 record(也就是服务器返回的 res.data) 的位置, 然后替换掉
-        // 也需要返回之前的 record, 即为 props 传进来的 record, 是只读属性, 因此没有修改
-        this.props.handleEditRecord(this.props.record, res.data)
+
+    try {
+      const res = await RecordsAPI.update(this.props.record.id, updatedRecord)
+      // 需要将 form 自己隐藏, 也就是需要改变 edit state
+      this.setState({
+        edit: false,
       })
-      .catch(error => console.log(error))
+      // 更新数据, 需在 records 这个数组中找到 record(也就是服务器返回的 res.data) 的位置, 然后替换掉
+      // 也需要返回之前的 record, 即为 props 传进来的 record, 是只读属性, 因此没有修改
+      this.props.handleEditRecord(this.props.record, res.data)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
-  handleDelete() {
-    RecordsAPI.remove(this.props.record.id)
+  async handleDelete() {
+    try {
+      await RecordsAPI.remove(this.props.record.id)
       // 注意这里返回的是 this.props.record, 而不是服务器返回的数据, 要保证数据一样
-      .then(res => this.props.handleDeleteRecord(this.props.record))
-      .catch(error => console.log(error))
+      this.props.handleDeleteRecord(this.props.record)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   recordRow() {

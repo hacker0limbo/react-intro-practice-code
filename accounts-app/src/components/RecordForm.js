@@ -27,7 +27,7 @@ export default class RecordForm extends Component {
     return this.state.date && this.state.title && this.state.amount
   }
 
-  handleSubmit(event) {
+  async handleSubmit(event) {
     // 默认表单提交使用 get 方法发送数据, 使用 preventDefault 可以阻止
     event.preventDefault()
     // 这里很神奇, 不用去获得表单里面用户输入的数据, 这是由于 onChange 方法受控组件之间在表单 value 和 state 之间做了双向绑定
@@ -37,18 +37,20 @@ export default class RecordForm extends Component {
       date: timestamp(this.state.date),
       amount: Number.parseInt(this.state.amount, 10)
     }
-    RecordsAPI.create(data)
-      .then(res => {
-        // 发送了数据以后返回的数据传递给父组件, 这里的 handleNewRecord 就是父组件传递给子组件的方法
-        this.props.handleNewRecord(res.data)
-        // 同时将数据表单里面的数据清空, 也就是将 state 清空
-        this.setState({
-          date: '',
-          title: '',
-          amount: ''
-        })
+    
+    try {
+      const res = await RecordsAPI.create(data)
+      // 发送了数据以后返回的数据传递给父组件, 这里的 handleNewRecord 就是父组件传递给子组件的方法
+      this.props.handleNewRecord(res.data)
+      // 同时将数据表单里面的数据清空, 也就是将 state 清空
+      this.setState({
+        date: '',
+        title: '',
+        amount: ''
       })
-      .catch(error => console.log(error))
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   render() {
