@@ -75,3 +75,9 @@ let aWithDefaults = Object.assign({}, { x: 1, y: 2 }, a);
 具体查看 https://redux.js.org/recipes/structuring-reducers/immutable-update-patterns
 
 **监听**: 对于一些数据, 比如这里的 credit, debit 和 balance 数据, 由于他们的更新是和不同组件里面的 state 的更新有关, 而每次各个子组件的更新都会触发父组件里面的 `render()`方法, 因此实现方法为在 render 里面也直接调用这些函数
+
+## 加载数据
+
+数据的加载在父组件的`componentDidMount()`这个生命周期方法里加载, 对于数据在子组件的加载的影响, 可以做如如下设置:
+- state 里面添加 isLoaded 类似属性, 进行判断是否渲染子组件
+- 在子组件里判断传递的 props 是否为空等, 根据情况渲染自己或者加载组件

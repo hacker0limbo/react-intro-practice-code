@@ -3,6 +3,8 @@ import Record from './Record'
 import RecordForm from './RecordForm'
 import * as RecordsAPI from '../utils/RecordsAPI'
 import AmountBox from './AmountBox'
+import DailyAmount from './DailyAmount'
+import Loading from './Loading'
 
 export default class Records extends Component {
   constructor(props) {
@@ -98,7 +100,7 @@ export default class Records extends Component {
     if (error) {
       recordsComponent = <div>Error: {error.message}</div>
     } else if (!isLoaded) {
-      recordsComponent = <div>Loading...</div>
+      recordsComponent = <div><Loading color="primary" /></div>
     } else {
       recordsComponent = (
         <div>
@@ -131,13 +133,13 @@ export default class Records extends Component {
       <div>
         <h2>Records</h2>
         <div className="row mb-3">
-          {/* 这里注意, 由于 credit 等的更新是发生在其余 state 发生改变的时候, 那么这些 state 的改变是会重新出发父组件, 也就是 Records.js 的 render() 方法的 */}
-          {/* 因此只要在 render() 方法里面, 也就是最后 return 出去一个页面的时候, 一次调用这三个函数就可以实现"监听" */}
+          {/* 子组件传递数据更新父组件的 state 之后, 会触发父组件的 render() 方法的重新调用, 因此直接在这里传递 props 实时更新 */}
           <AmountBox text="Credit" type="success" amount={this.getCredits()} />
           <AmountBox text="Debit" type="danger" amount={this.getDebits()} />
           <AmountBox text="Balance" type="info" amount={this.getBalance()} />
         </div>
         <RecordForm handleNewRecord={this.addRecord.bind(this)} />
+        <DailyAmount records={records} />
         {recordsComponent}
       </div>
     )
