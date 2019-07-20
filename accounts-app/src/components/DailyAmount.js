@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { formattedTime } from "../utils/utils"
 
-export default class DailyAmoount extends React.Component {
+export default class DailyAmoount extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -16,15 +16,7 @@ export default class DailyAmoount extends React.Component {
       return []
     }
     // 根据 records 返回所有的不重复的日期
-    const dates = []
-    records.reduce((prev, curr) => {
-      if (formattedTime(prev.date) !== formattedTime(curr.date)) {
-        dates.push(formattedTime(prev.date))
-      }
-      return curr
-    })
-    dates.push(formattedTime(records[records.length - 1]['date']))
-    return dates
+    return [...new Set(records.map(record => formattedTime(record.date)))]
   }
 
   componentWillReceiveProps(newProps) {

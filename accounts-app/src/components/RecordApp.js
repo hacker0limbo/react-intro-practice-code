@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import Record from './Record'
+import RecordBody from './RecordBody'
 import RecordForm from './RecordForm'
 import * as RecordsAPI from '../utils/RecordsAPI'
 import AmountBox from './AmountBox'
 import DailyAmount from './DailyAmount'
-import Loading from './Loading'
 
-export default class Records extends Component {
+export default class RecordApp extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -43,6 +42,7 @@ export default class Records extends Component {
   }
 
   updateRecord(preRecord, updatedRecord) {
+    console.log(this)
     // 传过来的是之前的 record 和更新以后的 record  需要用更新的 record 覆盖掉之前的 record
     const recordIndex = this.state.records.indexOf(preRecord)
     const updatedRecords = this.state.records.map((record, index) => {
@@ -94,41 +94,6 @@ export default class Records extends Component {
   }
 
   render() {
-    const { error, isLoaded, records } = this.state
-    let recordsComponent
-
-    if (error) {
-      recordsComponent = <div>Error: {error.message}</div>
-    } else if (!isLoaded) {
-      recordsComponent = <div><Loading color="primary" /></div>
-    } else {
-      recordsComponent = (
-        <div>
-          <table className="table table-bordered">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Title</th>
-                <th>Amount</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* 当组件的子元素是一系列类型相同元素时，就必须添加一个唯一的属性key */}
-              {records.map(record => (
-                <Record 
-                  key={record.id} 
-                  record={record} 
-                  handleEditRecord={this.updateRecord.bind(this)} 
-                  handleDeleteRecord={this.deleteRecord.bind(this)}
-                />
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )
-    }
-
     return (
       <div>
         <h2>Records</h2>
@@ -139,8 +104,14 @@ export default class Records extends Component {
           <AmountBox text="Balance" type="info" amount={this.getBalance()} />
         </div>
         <RecordForm handleNewRecord={this.addRecord.bind(this)} />
-        <DailyAmount records={records} />
-        {recordsComponent}
+        <DailyAmount records={this.state.records} />
+        <RecordBody 
+          error={this.state.error}
+          isLoaded={this.state.isLoaded}
+          records={this.state.records}
+          handleEditRecord={this.updateRecord.bind(this)} 
+          handleDeleteRecord={this.deleteRecord.bind(this)}
+        />
       </div>
     )
   }
