@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/accounts-app/static/css/main.a0aa1498.chunk.css",
-    "main.js": "/accounts-app/static/js/main.ae59678f.chunk.js",
-    "main.js.map": "/accounts-app/static/js/main.ae59678f.chunk.js.map",
-    "runtime~main.js": "/accounts-app/static/js/runtime~main.dcd08200.js",
-    "runtime~main.js.map": "/accounts-app/static/js/runtime~main.dcd08200.js.map",
-    "static/js/2.6e3fef84.chunk.js": "/accounts-app/static/js/2.6e3fef84.chunk.js",
-    "static/js/2.6e3fef84.chunk.js.map": "/accounts-app/static/js/2.6e3fef84.chunk.js.map",
-    "index.html": "/accounts-app/index.html",
-    "precache-manifest.a610e89fe1464188d69db40711d3a27c.js": "/accounts-app/precache-manifest.a610e89fe1464188d69db40711d3a27c.js",
-    "service-worker.js": "/accounts-app/service-worker.js",
-    "static/css/main.a0aa1498.chunk.css.map": "/accounts-app/static/css/main.a0aa1498.chunk.css.map"
+    "main.css": "/react-intro-practice-code/accounts-app/static/css/main.a0aa1498.chunk.css",
+    "main.js": "/react-intro-practice-code/accounts-app/static/js/main.e192d430.chunk.js",
+    "main.js.map": "/react-intro-practice-code/accounts-app/static/js/main.e192d430.chunk.js.map",
+    "runtime~main.js": "/react-intro-practice-code/accounts-app/static/js/runtime~main.924812eb.js",
+    "runtime~main.js.map": "/react-intro-practice-code/accounts-app/static/js/runtime~main.924812eb.js.map",
+    "static/js/2.6e3fef84.chunk.js": "/react-intro-practice-code/accounts-app/static/js/2.6e3fef84.chunk.js",
+    "static/js/2.6e3fef84.chunk.js.map": "/react-intro-practice-code/accounts-app/static/js/2.6e3fef84.chunk.js.map",
+    "index.html": "/react-intro-practice-code/accounts-app/index.html",
+    "precache-manifest.df1e048d0782f9fa608d774f22020690.js": "/react-intro-practice-code/accounts-app/precache-manifest.df1e048d0782f9fa608d774f22020690.js",
+    "service-worker.js": "/react-intro-practice-code/accounts-app/service-worker.js",
+    "static/css/main.a0aa1498.chunk.css.map": "/react-intro-practice-code/accounts-app/static/css/main.a0aa1498.chunk.css.map"
   }
 }
