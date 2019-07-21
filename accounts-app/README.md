@@ -2,6 +2,8 @@
 
 React 实现的小型财务系统, 具有增删改查功能
 
+[查看效果](https://hacker0limbo.github.io/react-intro-practice-code/accounts-app/)
+
 ## 项目预览
 
 ![demo](demo/demo.gif)

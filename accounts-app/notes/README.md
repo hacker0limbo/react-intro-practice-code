@@ -88,3 +88,7 @@ let aWithDefaults = Object.assign({}, { x: 1, y: 2 }, a);
 
 ## 一些命名
 - 父组件传递 props 回调函数一般为`handleActionChild`, 子组件对应的方法为`handleAction`
+
+## 部署问题
+
+https://stackoverflow.com/questions/51918854/how-to-deploy-create-react-app-to-gh-pages-subfolder
