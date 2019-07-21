@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/accounts-app/static/css/main.a0aa1498.chunk.css",
+    "main.js": "/accounts-app/static/js/main.ae59678f.chunk.js",
+    "main.js.map": "/accounts-app/static/js/main.ae59678f.chunk.js.map",
+    "runtime~main.js": "/accounts-app/static/js/runtime~main.dcd08200.js",
+    "runtime~main.js.map": "/accounts-app/static/js/runtime~main.dcd08200.js.map",
+    "static/js/2.6e3fef84.chunk.js": "/accounts-app/static/js/2.6e3fef84.chunk.js",
+    "static/js/2.6e3fef84.chunk.js.map": "/accounts-app/static/js/2.6e3fef84.chunk.js.map",
+    "index.html": "/accounts-app/index.html",
+    "precache-manifest.a610e89fe1464188d69db40711d3a27c.js": "/accounts-app/precache-manifest.a610e89fe1464188d69db40711d3a27c.js",
+    "service-worker.js": "/accounts-app/service-worker.js",
+    "static/css/main.a0aa1498.chunk.css.map": "/accounts-app/static/css/main.a0aa1498.chunk.css.map"
+  }
+}
