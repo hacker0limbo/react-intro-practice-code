@@ -34,7 +34,7 @@ handleChange() {
 
 ### 非受控组件
 
-与状态无关, 直接使用 ref 来获取值
+与状态无关, 直接使用 ref 来获取值, 目的只是为了获取最后的结果的一个值
 
 ## 扩展运算符
 
@@ -68,6 +68,10 @@ let aWithDefaults = Object.assign({}, { x: 1, y: 2 }, a);
 
 ![单向数据流](react组件传递.jpeg)
 
+关于数据流, 数据永远是从父组件流向子组件, 子组件通过回调函数将更新至传递给父组件, 父组件再使用 props 传回给子组件
+
+在设计 state 的时候要保证在父组件更新的数据能正确返回流动到子组件, 否则不符合单向数据流
+
 ## 数据的更新
 
 由于 setState, 所以永远需要返回一个新的 object, 可以使用 map, filter 等操作
@@ -81,3 +85,6 @@ let aWithDefaults = Object.assign({}, { x: 1, y: 2 }, a);
 数据的加载在父组件的`componentDidMount()`这个生命周期方法里加载, 对于数据在子组件的加载的影响, 可以做如如下设置:
 - state 里面添加 isLoaded 类似属性, 进行判断是否渲染子组件
 - 在子组件里判断传递的 props 是否为空等, 根据情况渲染自己或者加载组件
+
+## 一些命名
+- 父组件传递 props 回调函数一般为`handleActionChild`, 子组件对应的方法为`handleAction`

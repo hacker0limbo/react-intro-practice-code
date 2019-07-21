@@ -6,8 +6,6 @@ export default class DailyAmoount extends Component {
     super(props)
     this.state = {
       value: '',
-      dates: this.uniqueDates(this.props.records),
-      amounts: this.getDailyAmounts(this.value, this.props.records)
     }
   }
 
@@ -17,14 +15,6 @@ export default class DailyAmoount extends Component {
     }
     // 根据 records 返回所有的不重复的日期
     return [...new Set(records.map(record => formattedTime(record.date)))]
-  }
-
-  componentWillReceiveProps(newProps) {
-    // 生命周期, 当接受新的 props 时触发
-    this.setState({
-      dates: this.uniqueDates(newProps.records),
-      amounts: this.getDailyAmounts(this.state.value, newProps.records)
-    })
   }
 
   getDailyAmounts(date, records) {
@@ -45,6 +35,10 @@ export default class DailyAmoount extends Component {
   }
 
   render() {
+    // 每次根据返回的父组件的更新的数据流重新生成一些数据
+    let dates = this.uniqueDates(this.props.records)
+    let amounts = this.getDailyAmounts(this.state.value, this.props.records)
+
     if (this.props.records.length === 0) {
       return <div></div>
     }
@@ -55,7 +49,7 @@ export default class DailyAmoount extends Component {
         </div>
         <select value={this.state.value} onChange={this.handleChange.bind(this)} className="custom-select">
           <option>choose a date...</option>
-          {this.state.dates.map(date => (
+          {dates.map(date => (
             <option
               value={date}
               key={date}
@@ -67,9 +61,9 @@ export default class DailyAmoount extends Component {
         <div className="input-group-append">
           <span className="input-group-text bg-warning text-dark">$</span>
           <span 
-            className={`input-group-text bg-${this.state.amounts >= 0 ? 'success' : 'danger'} text-white`}
+            className={`input-group-text bg-${amounts >= 0 ? 'success' : 'danger'} text-white`}
           >
-            {this.state.amounts}
+            {amounts}
           </span>
         </div>
       </div>

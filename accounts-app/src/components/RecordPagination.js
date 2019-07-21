@@ -64,6 +64,9 @@ export default class RecordPagination extends Component {
   }
 
   render() {
+    // 一共的页数
+    const pages = this.getPages(this.props.totalPages)
+
     return (
       <nav>
         <ul className="pagination justify-content-center">
@@ -75,7 +78,7 @@ export default class RecordPagination extends Component {
               Previous
             </span>
           </li>
-          {this.getPages(this.props.totalPages)}
+          {pages}
           <li className={`page-item ${this.state.currentPage === this.props.totalPages ? 'disabled' : ''}`}>
             <span 
               className="page-link"

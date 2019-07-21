@@ -42,7 +42,6 @@ export default class RecordApp extends Component {
   }
 
   updateRecord(preRecord, updatedRecord) {
-    console.log(this)
     // 传过来的是之前的 record 和更新以后的 record  需要用更新的 record 覆盖掉之前的 record
     const recordIndex = this.state.records.indexOf(preRecord)
     const updatedRecords = this.state.records.map((record, index) => {
