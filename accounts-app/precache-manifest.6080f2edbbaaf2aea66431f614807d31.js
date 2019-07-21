@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d3486920f304cdfd39b4c1bd4e97bab5",
+    "revision": "77e21e5bda971cf5d0882c4cc08ef5ce",
     "url": "/react-intro-practice-code/accounts-app/index.html"
   },
   {
-    "revision": "7319d623937462a4d846",
+    "revision": "4d9c4a1ec089adc71c5d",
     "url": "/react-intro-practice-code/accounts-app/static/css/main.a0aa1498.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-intro-practice-code/accounts-app/static/js/2.6e3fef84.chunk.js"
   },
   {
-    "revision": "7319d623937462a4d846",
-    "url": "/react-intro-practice-code/accounts-app/static/js/main.59e24c11.chunk.js"
+    "revision": "4d9c4a1ec089adc71c5d",
+    "url": "/react-intro-practice-code/accounts-app/static/js/main.7d642724.chunk.js"
   },
   {
     "revision": "b0dfa666ca22f6dbe867",
