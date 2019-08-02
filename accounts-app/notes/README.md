@@ -91,4 +91,27 @@ let aWithDefaults = Object.assign({}, { x: 1, y: 2 }, a);
 
 ## 部署问题
 
+### gh-pages 命令行使用:
+
+```
+Options:
+
+-V, --version            output the version number
+-d, --dist <dist>        Base directory for all source files
+-s, --src <src>          Pattern used to select which files to publish (default: **/*)
+-b, --branch <branch>    Name of the branch you are pushing to (default: gh-pages)
+-e, --dest <dest>        Target directory within the destination branch (relative to the root) (default: .)
+-a, --add                Only add, and never remove existing files
+-x, --silent             Do not output the repository url
+-m, --message <message>  commit message (default: Updates)
+-g, --tag <tag>          add tag to commit
+-t, --dotfiles           Include dotfiles
+-r, --repo <repo>        URL of the repository you are pushing to
+-p, --depth <depth>      depth for clone (default: 1)
+-o, --remote <name>      The name of the remote (default: origin)
+-v, --remove <pattern>   Remove files that match the given pattern (ignored if used together with --add). (default: .)
+-n, --no-push            Commit only (with no push)
+-h, --help               output usage information
+```
+
 https://stackoverflow.com/questions/51918854/how-to-deploy-create-react-app-to-gh-pages-subfolder
