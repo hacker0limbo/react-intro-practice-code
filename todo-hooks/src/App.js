@@ -1,43 +1,38 @@
-import React, {useState} from 'react'
-import TodoForm from './components/TodoFrom'
+import React from 'react'
+import TodoApp from './components/TodoApp'
+import EmojiGenerator from './components/EmojiGenerator'
+import TokenApp from './components/TokenApp'
+import Counter from './components/Counter'
+import GithubList from './components/GithubList'
+import UnmountDemo from './components/UnmountDemo'
 
 const App = () => {
-  const [todos, setTodos] = useState([])
-
-  const toggleComplete = i => {
-    const newTodos = todos.map((todo, k) => {
-      if (k === i) {
-        // 用户自定义的属性，放在扩展运算符后面，则扩展运算符内部的同名属性会被覆盖掉        
-        return {
-          ...todo,
-          complete: !todo.complete,
-        }
-      } else {
-        return todo
-      }
-    })
-    setTodos(newTodos)
-  }
-
-  const clearTodos = () => {
-    setTodos([])
-  }
-
   return (
     <div>
-      <TodoForm onSubmit={text => setTodos([{ text, complete: false }, ...todos])} />
-      <ul>
-        {todos.map((todo, index) => (
-          <li 
-            key={index} 
-            onClick={() => toggleComplete(index)}
-            style={{textDecoration: todo.complete ? "line-through" : "", cursor: "pointer"}}
-          >
-            {todo.text}
-          </li>
-        ))}
-      </ul>
-      <button onClick={clearTodos}>reset</button>
+      <h3>Todo</h3>
+      <TodoApp />
+      <hr />
+
+      <h3>Emoji Generator</h3>
+      <EmojiGenerator />
+      <hr />
+
+      <h3>My Token</h3>
+      <TokenApp />
+      <hr />
+
+      <h3>Counter & fetch data</h3>
+      <Counter />
+      <hr />
+
+      <h3>Unmount & Mount Example</h3>
+      <UnmountDemo />
+      <hr />
+
+      <h3>Github List</h3>
+      <GithubList />
+      <hr />
+
     </div>
   )
 }
