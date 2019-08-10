@@ -1,16 +1,21 @@
 import React from 'react'
-import TodoApp from './components/TodoApp'
+import TodoApp from './components/TodoApp/'
 import EmojiGenerator from './components/EmojiGenerator'
 import TokenApp from './components/TokenApp'
 import Counter from './components/Counter'
 import GithubList from './components/GithubList'
 import UnmountDemo from './components/UnmountDemo'
+import SearchBox from './components/SearchBox'
 
 const App = () => {
   return (
     <div>
       <h3>Todo</h3>
       <TodoApp />
+      <hr />
+
+      <h3>Search Box</h3>
+      <SearchBox />
       <hr />
 
       <h3>Emoji Generator</h3>
