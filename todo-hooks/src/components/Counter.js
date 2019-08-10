@@ -17,7 +17,7 @@ const useFetch = (url, count) => {
 
     fetchData()
     // 这里设置为依赖 count 这个 state 的变化, 当 count 变化, 重新发送数据
-  }, [count])
+  }, [count, url])
 
   return {
     data,
