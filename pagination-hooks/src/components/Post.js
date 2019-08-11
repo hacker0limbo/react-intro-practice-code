@@ -6,6 +6,7 @@ const Post = (props) => {
 
   let body = ''
   let title = ''
+  let post_id = ''
   if (post !== undefined) {
     body = post.body
     title = post.title
@@ -21,7 +22,7 @@ const Post = (props) => {
 
   return (
     <div className="container mt-5">
-      <h2 className="text-center text-primary">Article</h2>
+      <h2 className="text-center text-primary">Article {post_id}</h2>
       <div className="card text-center">
         <div className="card-body">
           <h5 className="card-title">{title}</h5>

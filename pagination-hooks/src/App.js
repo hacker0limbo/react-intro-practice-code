@@ -29,6 +29,7 @@ const App = () => {
         />
         <Route 
           path="/post/:id" 
+          // 直接传递对应的 post 根据 id
           render={props => <Post {...props} post={posts[props.match.params.id]} loading={loading} />}  
         />
       </Switch>
