@@ -10,6 +10,7 @@ const Post = (props) => {
   if (post !== undefined) {
     body = post.body
     title = post.title
+    post_id = post.id
   }
 
   if (loading) {
