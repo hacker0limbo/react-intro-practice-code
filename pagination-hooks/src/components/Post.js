@@ -4,30 +4,23 @@ import { Link } from 'react-router-dom'
 const Post = (props) => {
   const { post, loading } = props
 
-  let body = ''
-  let title = ''
-  let post_id = ''
-  if (post !== undefined) {
-    body = post.body
-    title = post.title
-    post_id = post.id
-  }
-
   if (loading) {
     return (
-      <div className="spinner-border" role="status">
-        <span className="sr-only">Loading...</span>
+      <div classNmae="text-center">
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
       </div>
     )
   }
 
   return (
     <div className="container mt-5">
-      <h2 className="text-center text-primary">Article {post_id}</h2>
+      <h2 className="text-center text-primary">Article {post !== undefined ? post.id : ''}</h2>
       <div className="card text-center">
         <div className="card-body">
-          <h5 className="card-title">{title}</h5>
-          <p className="card-text">{body}</p>
+          <h5 className="card-title">{post !== undefined ? post.title : ''}</h5>
+          <p className="card-text">{post !== undefined ? post.body : ''}</p>
           <Link className="btn btn-primary" to="/">Back to Home</Link>
         </div>
       </div>
