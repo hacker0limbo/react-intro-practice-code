@@ -2,7 +2,7 @@
 
 使用 react hooks + material ui 构建的多步骤表单
 
-![](/demo/demo.gif)
+![](demo/demo.gif)
 
 还需添加的功能:
 - 表单验证
