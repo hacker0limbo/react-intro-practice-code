@@ -20,6 +20,7 @@ const App = () => {
   }, [])
   
   return (
+    // 使用 render 方法 render={(props) => <MyComponent {..props} otherProp=xxx />}
     <Router>
       <Switch>
         <Route 
