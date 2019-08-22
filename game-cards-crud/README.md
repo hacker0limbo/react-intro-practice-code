@@ -1,5 +1,10 @@
 # Game Cards CRUD
 
+## Demo
+
+![demo](demo/demo.gif)
+
+## 项目简介
 前后端分离搭建的 CRUD 项目
 
 前端使用 react + redux + redux-thunk + react-router + Semantic UI 
@@ -7,6 +12,7 @@
 后端使用 express + mongodb 
 
 前端服务器在 3000 端口, 后端服务器在 5000 端口
+
 
 ## 问题
 如果存在一个两个组件 A 和 B, B 的初始值由 A 提供, A 的值变化后立即同步给 B
