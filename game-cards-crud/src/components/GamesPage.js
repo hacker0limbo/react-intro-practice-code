@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import GamesList from './GamesList'
-import { fetchGames } from '../actions'
+import { fetchGames, deleteGame } from '../actions'
 
 const GamesPage = props => {
-  const { games, fetchGames } = props
+  const { games, fetchGames, deleteGame } = props
   
   useEffect(() => {
     fetchGames()
@@ -13,7 +13,7 @@ const GamesPage = props => {
 
   return ( 
     <div>
-      <GamesList games={games} />
+      <GamesList games={games} deleteGame={deleteGame} />
     </div>
   )
 }
@@ -26,7 +26,8 @@ const mapStateToProps = state => {
 
 GamesPage.propTypes = {
   games: PropTypes.array.isRequired,
-  fetchGames: PropTypes.func.isRequired
+  fetchGames: PropTypes.func.isRequired,
+  deleteGame: PropTypes.func.isRequired
 }
 
-export default connect(mapStateToProps, { fetchGames })(GamesPage)
+export default connect(mapStateToProps, { fetchGames, deleteGame })(GamesPage)

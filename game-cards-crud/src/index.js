@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/App';
 import GamesPage from './components/GamesPage'
-import GameForm from './components/GameForm'
+import GameFormPage from './components/GameFormPage'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import rootReducer from './reducers'
@@ -27,7 +27,8 @@ ReactDOM.render(
 
         <Route exact path="/" component={App} />
         <Route exact path="/games" component={GamesPage} />
-        <Route path="/games/new" component={GameForm} />
+        <Route path="/games/new" component={GameFormPage} />
+        <Route path="/game/:_id" component={GameFormPage} />
 
       </div>
     </Router>
