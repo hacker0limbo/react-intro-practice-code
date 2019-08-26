@@ -1,5 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { selectMovie } from '../actions'
 
+// MovieList 是一个容器组件
 const MovieList = props => {
   const { currentMovies, selectedMovie, selectMovie } = props
 
@@ -26,4 +29,10 @@ const MovieList = props => {
   )
 }
 
-export default MovieList
+const mapStateToProps = state => {
+  return {
+    selectedMovie: state.movies.selectedMovie
+  }
+}
+
+export default connect(mapStateToProps, { selectMovie })(MovieList)

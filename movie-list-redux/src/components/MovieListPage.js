@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { selectMovie, getMovies } from '../actions'
+import { getMovies } from '../actions'
 import MoviePagination from './MoviePagination'
 import MovieList from './MovieList'
 
 const MovieListPage = props => {
-  const { getMovies, selectMovie } = props
-  const { isFetching, error, moviesData, selectedMovie } = props.movies
+  const { getMovies } = props
+  const { isFetching, error, moviesData } = props.movies
   const TOTAL_PAGES = 2
   const [currentPage, setCurrentPage] = useState(1)
 
@@ -26,13 +26,7 @@ const MovieListPage = props => {
         const end = Math.floor(moviesData.length / TOTAL_PAGES) * currentPage
         currentMovies = moviesData.slice(start, end)
 
-        return (
-          <MovieList 
-            currentMovies={currentMovies}
-            selectMovie={selectMovie}
-            selectedMovie={selectedMovie}
-          />
-        )
+        return <MovieList currentMovies={currentMovies} />
       }
     }
   }
@@ -56,4 +50,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { selectMovie, getMovies })(MovieListPage)
+export default connect(mapStateToProps, { getMovies })(MovieListPage)
